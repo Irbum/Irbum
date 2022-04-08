@@ -1,0 +1,94 @@
+"""
+ticket booking system:
+ Irmuun.G
+"""
+
+import re
+from readline import set_auto_history
+
+movies = ('Shrek 1', 'Shrek 2', 'Shrek 3')
+periods = ('Morning', 'noon','night')
+time_selection = None 
+movie_selection = None 
+period_selection = None
+ordered_seats.append(([], [], [])) 
+print ()
+print ('Todays films')
+print ('-------------')
+for index, movie in enumerate(movies):
+ print (f"{index + 1}. {movie}")
+
+while movie_selection == None:
+ movie_choice = input ('Please, enter the movie code: ') 
+ try: movie_choice = int(movie_selection) if movie_selection not in range(1, len(movies) + 1):
+ movie_selection = None 
+ except: 
+
+ movie_choice = None 
+return movie_choice - 1
+print()
+print("Movie time periods")
+print ('-------------')
+for index, period in enumerate(periods):
+ print (f"{index + 1}. {period}") 
+ print()
+period_choice = None
+while period_choice == None:
+ period_selection = input("Please select a time: ")
+try:
+    period_selection = int(period_choice) if period_choice not in range(1, 4):
+    period_selection = None except:
+    period_selection = None  return:
+    period_selection - 1 
+    def pick_seat(movie_index, period_index, booked_seats):
+        seats_txt = ''
+        print()
+    print('Pick your seat')    
+    print('--------------')
+    for seat in range(1,16):
+        if seat in ordered_seats[movie_index][period_index]: seats_txt = seats_txt + ' xx'
+    else:
+        seats_txt = seats_txt + ' {:02d}'.format(seat)
+    if seat % 5 == 0:
+        seats_txt = seats_txt + '\n'
+    print (seats_txt)
+    seat_selection = None
+    while seat_selection not in range(1, 16):
+        try:
+            seat_selection = int(input("Please choose the seat you desire: "))
+
+ except:
+ print("Please enter a valid seat number") continue
+ if seat_selection not in range(1, 16) or seat_selection in ordered_seats[movie_index][period_index]:
+    print("Seat not available, choose a different seat")
+    set_selection = None :else:
+    ordered_seats[movie_index][period_index].append(seat_selection) 
+    print(f"Seat {seat_selection} booked")
+return seat_selection
+def repeal_seats(movie_index, period_index, ordered_seats, seat_selection):
+    ordered_seats[movie_index][period_index].remove(seat_selection) 
+    print(Sorry Your order has been cancelled")
+print("welcome to Irmuuns booking system")
+name = input('Please enter your name: ') 
+valid_number = None
+phone_number = input("Please enter your phone number: ") 
+valid_number = re.match(r'^([\s\d]+)$', phone_number)
+while rebook == 'yes':
+    movie_selection = pick_movie(movies)
+period_selection = pick_time(periods)
+seat_selection = pick_seat(movie_choice, period_choice, ordered_seats)
+
+print(f"Name: {name}, Phone: {phone_number}, Movie: {movies[movie_choice]}, Period:{periods[period_choice]}")
+correct = None
+
+correct = (input("Is the information accurate? ")).lower()
+if correct == 'yes':
+    print('Thank you for ordering.')
+elif correct == 'no':
+    repeal_seats(movie_selection, period_selection, ordered_seats, seat_selection)
+rebook = None
+while rebook not in ('yes', 'no'):
+    rebook = (input("Would you like to rebook your order? ")).lower() if rebook == 'yes':
+print('Rebooking...') 
+ elif rebook == 'no':
+ print("Thank you, come again")
